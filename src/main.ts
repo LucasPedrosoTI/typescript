@@ -95,7 +95,7 @@ const getTodayDateString = (): string => {
 // Add AJAX functions here:
 const getVenues = async () => {
   const city = $input.val();
-  const urlToFetch: string = `${url}${city}&limit=10&client_id=${clientId}&client_secret=${clientSecret}&v=${getTodayDateString()}`;
+  const urlToFetch: string = `${url}${city}&limit=20&client_id=${clientId}&client_secret=${clientSecret}&v=${getTodayDateString()}`;
   try {
     const res: Response = await fetch(urlToFetch);
     if (res.ok) {
