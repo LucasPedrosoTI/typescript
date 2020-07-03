@@ -93,6 +93,16 @@ footer {
   margin-top: 20px;
 }
 
+.venue_photo {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+}
+
+.venue_address_photo {
+  display: flex;
+}
+
 #venues h2 {
   font-family: Work Sans;
   font-size: 22px;
@@ -100,6 +110,7 @@ footer {
   line-height: 1.2;
   text-align: center;
   padding-top: 5px;
+  height: 110px;
 }
 
 #destination {
@@ -123,6 +134,7 @@ footer {
   letter-spacing: 3.4px;
   text-align: left;
   color: #4a4a4a;
+  margin: 15px;
 }
 
 #venues {
@@ -134,8 +146,11 @@ footer {
 }
 
 #weather {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 150px;
+  justify-items: center;
+  align-items: center;
   min-height: 150px;
 }
 
