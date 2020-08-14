@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export const up = (knex: Knex) => {
-  return knex.schema.createTable('recipes_ingredients', (table) => {
+  return knex.schema.createTable('recipes_products', (table) => {
     table.increments('id').primary();
 
     table
@@ -12,14 +12,16 @@ export const up = (knex: Knex) => {
       .inTable('recipes');
 
     table
-      .integer('ingredients_id')
+      .integer('users_products_id')
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('ingredients');
+      .inTable('users_products');
+
+    table.decimal('quantity', 10, 2).unsigned();
   });
 };
 
 export const down = (knex: Knex) => {
-  return knex.schema.dropTableIfExists('recipes_ingredients');
+  return knex.schema.dropTableIfExists('recipes_products');
 };

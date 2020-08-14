@@ -14,6 +14,9 @@ module.exports = {
     migrations: {
       directory: path.resolve(__dirname, 'src', 'db', 'migrations'),
     },
+    seeds: {
+      directory: path.resolve(__dirname, 'src', 'db', 'seeds'),
+    },
   },
   production: {
     client: 'mysql2',

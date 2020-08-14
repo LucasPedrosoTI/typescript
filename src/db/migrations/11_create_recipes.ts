@@ -12,10 +12,11 @@ export const up = (knex: Knex) => {
 
     table.string('name');
     table.string('type');
-    table.decimal('price', 10, 2).unsigned();
+    table.decimal('current_price', 10, 2).unsigned();
     table.string('shelf_life', 20);
     table.decimal('yield', 10, 2).unsigned();
     table.decimal('prep_time', 10, 2).unsigned();
+    table.date('updated_at');
   });
 };
 

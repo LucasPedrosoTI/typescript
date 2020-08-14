@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export const up = (knex: Knex) => {
-  return knex.schema.createTable('ingredients', (table) => {
+  return knex.schema.createTable('products', (table) => {
     table.increments('id').primary();
     table
       .integer('brands_id')
@@ -16,5 +16,5 @@ export const up = (knex: Knex) => {
 };
 
 export const down = (knex: Knex) => {
-  return knex.schema.dropTableIfExists('ingredients');
+  return knex.schema.dropTableIfExists('products');
 };

@@ -8,8 +8,10 @@
     "start": "node .",
     "build": "tsc",
     "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn ./src/app.ts",
-    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
-    "knex:rollback": "knex --knexfile knexfile.ts migrate:rollback"
+    "migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "rollback": "knex --knexfile knexfile.ts migrate:rollback",
+    "seed": "knex --knexfile knexfile.ts seed:run",
+    "db": "yarn migrate && yarn seed"
   },
   "dependencies": {
     "@types/app-root-path": "^1.2.4",

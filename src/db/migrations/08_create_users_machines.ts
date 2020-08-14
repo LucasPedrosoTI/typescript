@@ -15,12 +15,6 @@ export const up = (knex: Knex) => {
       .unsigned()
       .references('id')
       .inTable('machines');
-    table
-      .integer('machine_brands_id')
-      .notNullable()
-      .unsigned()
-      .references('id')
-      .inTable('machine_brands');
     table.decimal('debit_fee', 10, 2).unsigned();
     table.decimal('credit_fee', 10, 2).unsigned();
   });
