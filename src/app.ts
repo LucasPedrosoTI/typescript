@@ -23,7 +23,6 @@ app.use('/users', usersRouter);
 const port = process.env.PORT || '3000';
 
 app.listen(port, () => {
-  // tslint:disable-next-line:no-console
   console.log(`server running on port ${port}`);
 });
 
