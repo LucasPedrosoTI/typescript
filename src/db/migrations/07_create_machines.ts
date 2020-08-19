@@ -8,7 +8,9 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('machine_brands');
+      .inTable('machine_brands')
+      .onDelete('cascade')
+      .onUpdate('cascade');
     table.string('name', 70);
   });
 };

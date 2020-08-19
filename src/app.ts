@@ -6,7 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import usersRouter from './routes/usersRouter';
-import authRouter from './routes/AuthRouter';
+import authRouter from './routes/authRouter';
 
 dotenv.config();
 

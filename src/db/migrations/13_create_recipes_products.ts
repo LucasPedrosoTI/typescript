@@ -9,7 +9,9 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('recipes');
+      .inTable('recipes')
+      .onDelete('cascade')
+      .onUpdate('cascade');
 
     table
       .integer('users_products_id')

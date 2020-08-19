@@ -8,7 +8,9 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('users');
+      .inTable('users')
+      .onDelete('cascade')
+      .onUpdate('cascade');
 
     table.string('name');
     table.string('type');
@@ -16,6 +18,8 @@ export const up = (knex: Knex) => {
     table.string('shelf_life', 20);
     table.decimal('yield', 10, 2).unsigned();
     table.decimal('prep_time', 10, 2).unsigned();
+    table.text('preparation');
+    table.decimal('profit', 10, 2).unsigned();
     table.date('updated_at');
   });
 };

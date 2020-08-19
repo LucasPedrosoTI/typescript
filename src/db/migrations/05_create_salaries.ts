@@ -8,7 +8,9 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('users');
+      .inTable('users')
+      .onDelete('cascade')
+      .onUpdate('cascade');
     table.decimal('salary', 10, 2).unsigned();
     table.integer('business_days').unsigned();
     table.integer('business_hours').unsigned();

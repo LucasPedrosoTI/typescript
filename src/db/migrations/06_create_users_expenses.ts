@@ -8,13 +8,17 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('users');
+      .inTable('users')
+      .onDelete('cascade')
+      .onUpdate('cascade');
     table
       .integer('expenses_id')
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('expenses');
+      .inTable('expenses')
+      .onDelete('cascade')
+      .onUpdate('cascade');
     table.decimal('cost', 10, 2).unsigned();
     table.integer('divided_by').unsigned();
   });

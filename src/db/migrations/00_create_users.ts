@@ -7,6 +7,10 @@ export const up = (knex: Knex) => {
     table.string('password').notNullable();
     table.string('first_name', 50).notNullable();
     table.string('last_name', 50).notNullable();
+    table.string('business_name').notNullable();
+    table.string('logo').notNullable();
+    table.integer('admin').defaultTo(0).notNullable().unsigned();
+    table.string('plan').defaultTo('free').notNullable();
   });
 };
 

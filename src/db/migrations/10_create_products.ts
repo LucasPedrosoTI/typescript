@@ -8,7 +8,9 @@ export const up = (knex: Knex) => {
       .notNullable()
       .unsigned()
       .references('id')
-      .inTable('brands');
+      .inTable('brands')
+      .onDelete('cascade')
+      .onUpdate('cascade');
     table.string('name');
     table.decimal('quantity', 10, 2).unsigned();
     table.string('unit', 45);
