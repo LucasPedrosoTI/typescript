@@ -5,6 +5,7 @@ import logger from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import APIRouter from './routes/APIrouter';
 import usersRouter from './routes/usersRouter';
 import authRouter from './routes/authRouter';
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', APIRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 
