@@ -2,12 +2,6 @@ import React, { Component, ErrorInfo } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 class ErrorBoundary extends Component {
-  // deletes the constructor...
-  //constructor(props) {
-  // super(props);
-  // this.state = { hasError: false, redirect: false };
-  // }
-
   public state = {
     redirect: '',
     hasError: false,

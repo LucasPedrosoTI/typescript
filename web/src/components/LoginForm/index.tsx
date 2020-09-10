@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import './styles.css';
@@ -24,6 +24,7 @@ import {
 } from '@material-ui/icons';
 
 import { Auth } from '../../services/auth_service';
+import ErrorMessage from '../../errors/ErrorMessage';
 
 interface State {
   email: string;
@@ -33,6 +34,7 @@ interface State {
 }
 
 const LoginForm = () => {
+  const [errorMessage, setErrorMessage] = useState('');
   const { values, setValue } = useForm({
     email: '',
     password: '',
@@ -63,21 +65,18 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const data = {
-      email: values.email,
-      password: values.password,
-    };
-
     try {
+      const data = {
+        email: values.email,
+        password: values.password,
+      };
+
       const response = await Auth.signin(data);
 
-      if (response.status !== 200) {
-        throw new Error(response.data);
-      }
-
-      console.log(response.data);
+      console.log(response?.data);
     } catch (error) {
-      console.error(error);
+      setErrorMessage(error.message);
+      console.log(errorMessage);
     }
   };
 
@@ -155,6 +154,8 @@ const LoginForm = () => {
           Esqueci a senha
         </Link>
       </section>
+
+      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
 
       <Button
         type="submit"
