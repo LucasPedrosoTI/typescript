@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { ThemeProvider, useMediaQuery } from '@material-ui/core';
 // import { AppContext, INITIAL_STATE, reducer } from './context/AppContext';
 
