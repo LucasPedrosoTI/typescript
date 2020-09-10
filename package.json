@@ -11,7 +11,8 @@
     "migrate": "knex --knexfile knexfile.ts migrate:latest",
     "rollback": "knex --knexfile knexfile.ts migrate:rollback",
     "seed": "knex --knexfile knexfile.ts seed:run",
-    "db": "yarn migrate && yarn seed"
+    "db": "yarn migrate && yarn seed",
+    "webbuild": "cd web && yarn react-scripts build"
   },
   "dependencies": {
     "@types/app-root-path": "^1.2.4",

@@ -14,7 +14,13 @@ main {
 
 main .mobile_dashboard {
   width: 100%;
-  flex: 2;
+  flex: 1;
+}
+
+main .info_section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 main section.text_container {
@@ -29,4 +35,14 @@ main section.text_container h1 {
 
 main section.text_container p {
   font-size: 1.8rem;
+}
+
+@media (min-width: 500px) {
+  main {
+    flex-direction: row;
+  }
+
+  main .mobile_dashboard {
+    max-width: 500px;
+  }
 }

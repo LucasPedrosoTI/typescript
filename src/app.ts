@@ -5,7 +5,7 @@ import logger from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import APIRouter from './routes/APIrouter';
+import APIRouter from './routes/apiRouter';
 import usersRouter from './routes/usersRouter';
 import authRouter from './routes/authRouter';
 

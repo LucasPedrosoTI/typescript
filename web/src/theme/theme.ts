@@ -10,6 +10,9 @@ const themeConfig = (prefersDarkMode: boolean) =>
       secondary: {
         main: '#FDFFB6',
       },
+      common: {
+        black: '#30374e',
+      },
     },
     typography: {
       fontFamily: 'Poppins, Archivo',
