@@ -6,21 +6,31 @@ import multerConfig from '../config/multer';
 import UsersController from '../controllers/UsersController';
 import { verifyJWT, isAdmin, isAdminOrCurrentUser } from '../middlewares/auth';
 
-const router = Router();
+const usersRouter = Router();
 const upload = multer(multerConfig);
 
 /* GET users listing. */
-router.get('/', verifyJWT, isAdmin, UsersController.index);
+usersRouter.get('/', verifyJWT, isAdmin, UsersController.index);
 
-router.get('/:id', verifyJWT, isAdminOrCurrentUser, UsersController.getOne);
+usersRouter.get(
+  '/:id',
+  verifyJWT,
+  isAdminOrCurrentUser,
+  UsersController.getOne
+);
 
-router.post(
+usersRouter.post(
   '/:id',
   verifyJWT,
   isAdminOrCurrentUser,
   upload.single('logo'),
   UsersController.update
 );
-router.delete('/:id', verifyJWT, isAdminOrCurrentUser, UsersController.delete);
+usersRouter.delete(
+  '/:id',
+  verifyJWT,
+  isAdminOrCurrentUser,
+  UsersController.delete
+);
 
-export default router;
+export default usersRouter;

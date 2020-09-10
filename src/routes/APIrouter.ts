@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-const router = Router();
+const apiRouter = Router();
 
-router.get('/', (req, res) => res.json({ msg: 'API is running.' }));
+apiRouter.get('/', (req, res) => res.json({ msg: 'API is running.' }));
 
-export default router;
+export default apiRouter;
