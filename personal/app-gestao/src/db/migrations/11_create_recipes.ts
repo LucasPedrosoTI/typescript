@@ -1,0 +1,29 @@
+import Knex from 'knex';
+
+export const up = (knex: Knex) => {
+  return knex.schema.createTable('recipes', (table) => {
+    table.increments('id').primary();
+    table
+      .integer('users_id')
+      .notNullable()
+      .unsigned()
+      .references('id')
+      .inTable('users')
+      .onDelete('cascade')
+      .onUpdate('cascade');
+
+    table.string('name');
+    table.string('type');
+    table.decimal('current_price', 10, 2).unsigned();
+    table.string('shelf_life', 20);
+    table.decimal('yield', 10, 2).unsigned();
+    table.decimal('prep_time', 10, 2).unsigned();
+    table.text('preparation');
+    table.decimal('profit', 10, 2).unsigned();
+    table.date('updated_at');
+  });
+};
+
+export const down = (knex: Knex) => {
+  return knex.schema.dropTableIfExists('recipes');
+};

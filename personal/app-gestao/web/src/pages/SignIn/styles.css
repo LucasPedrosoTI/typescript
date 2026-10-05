@@ -1,0 +1,10 @@
+.back_button {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 3.5rem;
+}
+
+.back_icon {
+  color: var(--color-primary-dark);
+}
