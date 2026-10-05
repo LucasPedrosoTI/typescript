@@ -1,0 +1,71 @@
+<div class="main-container container vh-100">
+  <div class="row h-100 justify-content-around align-items-center">
+    <div class="produto-imagem col-md-5 d-flex justify-content-center">
+      <img src="{{ produto.imagem }}" alt="" />
+    </div>
+
+    <div class="produto-info col-md-7">
+      <h2 class="mb-5">
+        <strong>{{ produto.fornecedor.nome }} {{ produto.nome }}</strong>
+      </h2>
+
+      <div *ngIf="produto.promocao">
+        <div>
+          <h3>
+            De:
+            <small class="badge badge-danger">
+              <del>
+                {{ produto.valor | currency: "BRL" }}
+              </del>
+            </small>
+          </h3>
+          <h3>
+            Por:
+            <span class="badge badge-success">
+              {{ produto.valorPromo | currency: "BRL" }}
+            </span>
+          </h3>
+        </div>
+      </div>
+
+      <div *ngIf="!produto.promocao">
+        <h3>
+          <span class="badge badge-success">
+            {{ produto.valor | currency: "BRL" }}
+          </span>
+        </h3>
+      </div>
+
+      <table class="table table-borderless">
+        <tr>
+          <td>
+            <strong>Categoria</strong>
+          </td>
+          <td>{{ produto.categoria }}</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Estoque</strong>
+          </td>
+          <td>{{ produto.quantidade }}</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Fornecedor</strong>
+          </td>
+          <td>{{ produto.fornecedor.nome }}</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Código</strong>
+          </td>
+          <td>{{ produto.codigoProduto }}</td>
+        </tr>
+      </table>
+
+      <button class="btn btn-info">
+        <i class="fas fa-shopping-cart"></i> Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+</div>

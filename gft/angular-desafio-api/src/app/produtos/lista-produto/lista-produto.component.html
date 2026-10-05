@@ -1,0 +1,52 @@
+<div class="container main-container">
+  <div class="row text-center">
+    <div *ngFor="let produto of produtos" class="col-md-4 mb-4">
+      <div class="card">
+        <a
+          [routerLink]="['/produtos', produto.id]"
+          routerLinkActive="router-link-active"
+          class="card-img"
+        >
+          <img
+            class="card-img-top"
+            src="{{ produto.imagem }}"
+            alt="{{ produto.nome }}"
+          />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ produto.fornecedor.nome }} {{ produto.nome }}
+          </h5>
+
+          <div [ngSwitch]="produto.promocao">
+            <div *ngSwitchCase="true">
+              <span class="badge badge-success">Promoção!</span>
+            </div>
+            <div *ngSwitchDefault>Por apenas:</div>
+          </div>
+
+          <div *ngIf="produto.promocao" class="card-body">
+            <div>
+              <h4 class="card-text">
+                De:
+                <small>
+                  <del>
+                    {{ produto.valor | currency: "BRL" }}
+                  </del>
+                </small>
+                <br />
+                Por: {{ produto.valorPromo | currency: "BRL" }}
+              </h4>
+            </div>
+          </div>
+
+          <div *ngIf="!produto.promocao" class="card-body">
+            <h4 class="card-text">{{ produto.valor | currency: "BRL" }}</h4>
+          </div>
+
+          <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

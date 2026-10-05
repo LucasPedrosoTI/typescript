@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.main-container {
+  margin: 5% auto;
+  background-color: white;
+}
+
+.card-img {
+  height: 50%;
+  width: 50%;
+  margin: 5% auto;
+}
+
+footer.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
